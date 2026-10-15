@@ -1,0 +1,44 @@
+/* ===== Верхняя часть редактора ===== */
+.top-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 0;
+}
+
+/* ===== Строка: табулатура + ритм-контролы ===== */
+.tab-controls-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  height: 130px;
+  width: 100%;
+  flex-shrink: 0;
+  align-items: stretch;
+  gap: 10px;
+}
+
+/* ===== Обёртка кнопки "+ tab" ===== */
+.tabs {
+  margin-top: 30px;
+  flex-shrink: 0;
+}
+
+/* ===== Слот грифа — прижат к низу ===== */
+.fretboard-slot {
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 398px) {
+  .tab-controls-row {
+    gap: 5px;
+  }
+}

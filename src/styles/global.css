@@ -1,0 +1,16 @@
+/* Подключаем шрифт из Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Звёздочка означает "все элементы на странице" */
+* { 
+  box-sizing: border-box; /* padding и border включаются в общую ширину элемента */
+  margin: 0; /* убираем все внешние отступы */
+  padding: 0; /* убираем все внутренние отступы */
+}
+
+/* Стили для тега body - это весь видимый фон страницы */
+body { 
+  font-family: 'Comic Neue', cursive; /* какой шрифт использовать */
+  margin: 0; /* убираем стандартный отступ body (8px в браузерах) */
+  background: #5098b6; /* фон вокруг телефона */
+}

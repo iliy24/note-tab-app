@@ -1,0 +1,56 @@
+.tab-area {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    height: 130px;
+    align-items: stretch;
+}
+
+.strings-label {
+    display: flex;
+    flex-direction: column;
+    color: #3b82f6;
+    font-size: 20px;
+    font-weight: 700;
+    user-select: none;
+    flex-shrink: 0;
+    justify-content: space-between;
+    line-height: 1;                   /* убираем лишнюю высоту строки */
+}
+
+.strings-label-area {
+    display: flex;
+    border-right: 2px solid #3b82f6;
+    flex-shrink: 0;
+    align-items: stretch;
+}
+
+.strings-lines {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    padding-left: 2px;
+    height: 130px;
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px dashed #3b82f6;
+    flex: 1;
+    transform: translateY(-50%);      /* поднимаем линию на половину высоты */
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+@media (max-width: 398px) {
+    .tab-area {
+        flex: 1 1 auto;            /* занимает всё доступное место */
+        min-width: 0;
+    }
+    
+    .strings-label {
+        font-size: 14px;           /* уменьшаем шрифт */
+    }
+}

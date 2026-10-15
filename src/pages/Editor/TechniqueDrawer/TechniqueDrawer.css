@@ -1,0 +1,182 @@
+.td {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+
+.tech-drawer {
+    position: absolute;
+    bottom: 50px;
+    width: 30%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 2px solid #3b82f6;
+    border-radius: 24px 24px 0px 0px;
+    padding: 15px 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    z-index: 10;
+    flex-shrink: 0;
+    cursor: pointer;                  /* КУРСОР УКАЗЫВАЕТ НА КЛИКАБЕЛЬНОСТЬ */
+    user-select: none;                /* ЗАПРЕЩАЕМ ВЫДЕЛЕНИЕ ТЕКСТА */
+
+}
+
+.tech-drawer.open {
+    transform: translateY(0);
+    width: 100%;
+    right: 0;
+    border: 2px solid #3b82f6;
+    border-radius: 24px;
+    cursor: default;                  /* КОГДА ОТКРЫТО - ОБЫЧНЫЙ КУРСОР */
+}
+
+.tech-drawer-header {
+    display: flex;
+    justify-content: center;          /* ЦЕНТРИРУЕМ КНОПКУ */
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Специальный класс для кнопки tech в центре */
+.tech-btn-center {
+    display: flex;
+    border: 2px dashed #3b82f6;
+    background: transparent;
+    color: #3b82f6;
+    border-radius: 60px;
+    padding: 2px 20px;
+    font-family: inherit;
+    font-size: 22px;
+    cursor: pointer;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s;
+    flex-shrink: 0;
+    pointer-events: auto;             /* КНОПКА КЛИКАБЕЛЬНА */
+}
+
+.tech-btn-center:active {
+    transform: scale(0.92);
+}
+
+.tech-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    font-style: inherit;
+    font-size: x-large;
+    font-weight: 400;
+    color: #3b82f6;
+    transition: transform 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    pointer-events: auto;             /* КНОПКИ ТЕХНИК КЛИКАБЕЛЬНЫ */
+}
+
+.technique-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: nowrap;
+    pointer-events: auto;             /* КНОПКИ ТЕХНИК КЛИКАБЕЛЬНЫ */
+}
+
+.tech-btn:active {
+    transform: scale(1.25);
+}
+
+.dtn-l-r-cont {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 36%;
+    gap: 10px;
+    height: auto;
+    padding-bottom: 15px;
+    align-items: center;
+}
+
+.btn-l-r {
+    flex: 1;
+    border: 2px solid #3b82f6;
+    border-radius: 24px;
+    background: white;
+    color: #3b82f6;
+    font-size: 28px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-shrink: 0;
+    min-height: 30px;
+    min-width: 56px;
+    max-width: 80px;
+    display: flex;
+    padding: 0;
+    line-height: 1;
+}
+
+.btn-l-r:active {
+    transform: scale(0.92);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+@media (max-width: 430px) {
+    .tech-drawer {
+        bottom: 60px;
+        padding: 10px 15px;
+    }
+    
+    .tech-drawer-header {
+        margin-bottom: 10px;
+    }
+    
+    .tech-btn-center {
+        font-size: 20px;
+        padding: 2px 16px;
+    }
+    
+    .tech-btn {
+        font-size: large;
+    }
+    
+    .dtn-l-r-cont {
+        padding-left: 20%;
+        gap: 8px;
+        padding-bottom: 10px;
+    }
+    
+    .btn-l-r {
+        font-size: 24px;
+        min-height: 48px;
+        min-width: 48px;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 340px) {
+    .tech-drawer {
+        padding: 10px;
+        bottom: 40px;
+    }
+    
+    .tech-btn {
+        font-size: medium;
+    }
+    
+    .dtn-l-r-cont {
+        padding-left: 10%;
+        gap: 5px;
+    }
+    
+    .btn-l-r {
+        font-size: 20px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+}

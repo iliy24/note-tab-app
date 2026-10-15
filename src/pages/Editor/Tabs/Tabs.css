@@ -1,0 +1,38 @@
+.btn-dashed {
+    display: flex;
+    border: 2px dashed #3b82f6;
+    background: transparent;
+    color: #3b82f6;
+    border-radius: 60px;
+    padding: 2px 20px;
+    font-family: inherit;
+    font-size: 22px;
+    cursor: pointer;
+    width: auto;
+    margin-bottom: 15px;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s;
+    flex-shrink: 0;                   /* кнопка не сжимается */
+}
+
+.btn-dashed:active {
+    transform: scale(0.92);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+@media (max-width: 430px) {
+    .btn-dashed {
+        font-size: 20px;              /* чуть меньше текст */
+        padding: 2px 16px;            /* чуть меньше отступы */
+        margin-bottom: 10px;          /* меньше отступ снизу */
+    }
+}
+
+@media (max-width: 340px) {
+    .btn-dashed {
+        font-size: 18px;              /* минимальный размер */
+        padding: 2px 12px;
+    }
+}

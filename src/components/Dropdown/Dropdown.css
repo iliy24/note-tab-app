@@ -1,0 +1,74 @@
+/* Overlay — только для закрытия клика снаружи */
+.dropdown-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: transparent;
+}
+
+/* Меню — absolute относительно .dropdown-anchor */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);        /* сразу под кнопкой, отступ 8px */
+  right: 0;                     /* выравнено по правому краю кнопки */
+  background: white;
+  border: 2px solid #3b82f6;
+  border-radius: 16px;
+  padding: 8px;
+  min-width: 180px;
+  max-width: calc(100vw - 40px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 31;                  /* выше overlay */
+  animation: dropdown-fade 0.15s ease-out;
+}
+
+@keyframes dropdown-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item {
+  border: none;
+  background: none;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3b82f6;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 8px;
+  transition: background 0.1s;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background: #eef4fb;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: #d4e3f5;
+  margin: 4px 0;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 398px) {
+  .dropdown-menu {
+    min-width: 160px;
+    padding: 6px;
+  }
+  .dropdown-item {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}

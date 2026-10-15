@@ -1,0 +1,126 @@
+.input-group {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.input-and-icons {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    padding-right: 68px;
+    width: auto;
+    max-width: 70%;
+    min-width: 0;
+    flex-wrap: nowrap;
+}
+
+.input-castom {
+    border: none;
+    border-bottom: 2px solid #3b82f6;
+    background: none;
+    font-family: inherit;
+    font-size: 26px;
+    color: #3b83f6;
+    padding: 5px 0;
+    outline: none;
+    font-style: italic;
+    flex: 1;                        /* занимает доступное место */
+    min-width: 0;                   /* может сжиматься до нуля */
+    width: auto;
+    user-select: none;
+}
+
+.input-castom::placeholder {
+    color: #3b82f6;
+}
+
+.group-icons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;                /* кнопки НЕ сжимаются */
+    width: auto;
+}
+
+.icon-btn1 {
+    border: 2px solid #3b82f6;
+    background: none;
+    color: #3b82f6;
+    border-radius: 12px;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.265);
+    transition: transform 0.1s;
+    flex-shrink: 0;                /* кнопки НЕ сжимаются */
+}
+
+.img-style-paste {
+    width: 30px;
+    height: 30px;
+}
+
+.img-style-tresh {
+    width: 24px;
+    height: 24px;
+}
+
+.img-style-copy {
+    width: 24px;
+    height: 22px;
+}
+
+.icon-btn1:active {
+    transform: scale(0.92);
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+@media (max-width: 398px) {
+    .input-group {
+        margin-bottom: 20px;
+    }
+    
+    .input-and-icons {
+        padding-right: 0;           /* УБИРАЕМ правый отступ полностью */
+        gap: 5px;
+        width: 100%;
+    }
+    
+    .input-castom {
+        font-size: 20px;
+        flex: 1;                    /* поле занимает доступное место */
+        min-width: 50px;            /* минимальная ширина */
+    }
+    
+    .group-icons {
+        gap: 5px;
+        flex-shrink: 0;            /* кнопки НЕ сжимаются */
+    }
+    
+    .icon-btn1 {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;            /* кнопки НЕ сжимаются */
+    }
+    
+    .img-style-paste {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .img-style-tresh {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .img-style-copy {
+        width: 20px;
+        height: 18px;
+    }
+}
