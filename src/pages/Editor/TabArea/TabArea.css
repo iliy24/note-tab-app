@@ -1,9 +1,41 @@
+
+.tab-area-label {
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0.7;
+    margin-bottom: 4px;
+    user-select: none;
+        flex: 1;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: inherit;
+    color: #3b82f6;
+    min-width: 0
+}
+
 .tab-area {
     display: flex;
     flex: 1;
     min-width: 0;
-    height: 130px;
+    height: 150px; /* Фиксированная высота */
+    max-height: 150px;
     align-items: stretch;
+}
+
+/* И обязательно скрываем вертикальный скролл внутри сетки */
+.strings-lines {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    overflow-x: auto;   /* Горизонтальный скролл для длинных табов */
+    overflow-y: hidden; /* СТРОГО скрываем вертикальный скролл */
+    scrollbar-width: none; /* Скрываем скроллбар в Firefox */
+    position: relative;
+    padding: 4px 0;
+    box-sizing: border-box;
 }
 
 .strings-label {
@@ -15,7 +47,8 @@
     user-select: none;
     flex-shrink: 0;
     justify-content: space-between;
-    line-height: 1;                   /* убираем лишнюю высоту строки */
+    line-height: 1;
+    padding: 6px 0;
 }
 
 .strings-label-area {
@@ -23,34 +56,86 @@
     border-right: 2px solid #3b82f6;
     flex-shrink: 0;
     align-items: stretch;
+    margin-right: 2px;
 }
 
-.strings-lines {
-    flex: 1;
+
+.strings-lines::-webkit-scrollbar {
+    display: none;
+}
+
+/* Строка (струна) */
+.string-row {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: 0;
-    padding-left: 2px;
-    height: 130px;
+    flex: 1;
+    align-items: center;
+    position: relative;
+    min-width: max-content; 
+    z-index: 1;
 }
 
-.line {
-    width: 100%;
-    border-bottom: 2px dashed #3b82f6;
-    flex: 1;
-    transform: translateY(-50%);      /* поднимаем линию на половину высоты */
+/* Пунктирная линия (рисуется ровно по центру ячейки) */
+.string-row::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #3b82f6 50%, transparent 50%);
+    background-size: 10px 2px; 
+    transform: translateY(-50%);
+    z-index: -1;
+    pointer-events: none; 
 }
+
+/* Ячейка */
+.tab-cell {
+    width: 20px;
+    min-width: 20px; 
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: #3b82f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    cursor: pointer; 
+    box-sizing: border-box;
+    position: relative; 
+     outline: 1px solid transparent;
+}
+
+/* Белый фон появляется только под цифрой, чтобы скрыть линию */
+.tab-cell:not(:empty) {
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px #ffffff;
+    border-radius: 4px;
+}
+
+/* ===== КУРСОР ===== */
+/* Рисуем курсор через ::after, чтобы он был поверх цифры */
+.tab-cell.active-cursor::after {
+    content: "";
+    position: absolute;
+    top: -2px; /* Чуть выходим за границы */
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    background-color: rgba(59, 130, 246, 0.3); 
+    border-left: 1px solid rgba(59, 130, 246, 0.8);
+    border-right: 1px solid rgba(59, 130, 246, 0.8);
+    z-index: 10; 
+    pointer-events: none;
+}
+
 
 /* ===== АДАПТИВНОСТЬ ===== */
-
 @media (max-width: 398px) {
-    .tab-area {
-        flex: 1 1 auto;            /* занимает всё доступное место */
-        min-width: 0;
-    }
-    
-    .strings-label {
-        font-size: 14px;           /* уменьшаем шрифт */
-    }
+    .strings-label { font-size: 14px; }
+    .tab-cell { width: 20px; min-width: 20px; font-size: 14px; height: 20px; }
+    .tab-cell.active-cursor::after { border-width: 0.5px; }
+    .strings-lines { padding: 2px 0; } /* Меньше отступ на телефонах */
 }

@@ -1,12 +1,15 @@
 import React from "react";
-import './Tabs.css'
+import './Tabs.css';
 
-export default function Tabs(){
-    return(
-        <div>
-            <button className="btn-dashed">
+export default function Tabs({ 
+    tabs,  
+    onAddTab 
+}) {
+    if (!tabs || !Array.isArray(tabs)) {
+        return (
+            <button className="btn-dashed" onClick={onAddTab}>
                 + tab
             </button>
-        </div>
-    )
+        );
+    }
 }

@@ -1,0 +1,51 @@
+.tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+
+}
+
+
+/* ===== ПЛАВАЮЩАЯ КНОПКА (FAB) ===== */
+.fab-btn {
+  position: fixed;
+  bottom: 30px;       /* Отступ от низа экрана */
+  right: 30px;        /* Отступ от правого края */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Делаем круглой */
+  background: #3b82f6;
+  color: white;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1;
+  border: none;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); /* Тень, чтобы выделялась */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100;       /* Поверх всех элементов */
+  transition: transform 0.2s ease, background 0.2s;
+}
+
+.fab-btn:hover {
+  background: #2563eb; /* Чуть темнее при наведении */
+  transform: scale(1.05);
+}
+
+.fab-btn:active {
+  transform: scale(0.95);
+}
+
+/* На мобилках можно сделать кнопку чуть меньше */
+@media (max-width: 430px) {
+  .fab-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    font-size: 32px;
+  }
+}

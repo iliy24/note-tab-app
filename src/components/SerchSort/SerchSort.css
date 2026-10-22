@@ -1,0 +1,50 @@
+/* Общая обёртка: поиск + сортировка в одну строку */
+.search-sort {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+  margin-top: 2%;
+}
+
+/* Строка поиска */
+.serch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+  border: 2px solid #3b82f6;
+  border-radius: 16px;
+  padding: 6px 10px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* Поле ввода */
+.inputText {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+  font-size: 16px;
+  color: #3b82f6;
+  min-width: 0;
+}
+
+.inputText::placeholder {
+  color: #3b82f6;
+  opacity: 0.6;
+}
+
+/* Иконка лупы */
+.img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+  pointer-events: none;
+}

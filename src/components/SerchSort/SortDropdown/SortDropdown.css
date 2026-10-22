@@ -1,0 +1,93 @@
+/* Overlay — невидимый слой на весь экран для закрытия по клику вне */
+.sort-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: transparent;
+}
+
+/* Обёртка кнопки и меню — точка привязки для absolute */
+.sort-anchor {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+}
+
+/* Кнопка "По дате ▾" */
+.sort-btn {
+  border: 2px solid #3b82f6;
+  background: white;
+  color: #3b82f6;
+  border-radius: 16px;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.1s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sort-btn:hover {
+  background: #eef4fb;
+}
+
+.sort-btn:active {
+  transform: scale(0.96);
+}
+
+/* Меню */
+.sort-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: white;
+  border: 2px solid #3b82f6;
+  border-radius: 14px;
+  padding: 6px;
+  min-width: 150px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 41;
+  animation: sort-fade 0.15s ease-out;
+}
+
+@keyframes sort-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Пункт меню */
+.sort-item {
+  border: none;
+  background: none;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: #3b82f6;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 8px;
+  transition: background 0.1s;
+  white-space: nowrap;
+}
+
+.sort-item:hover {
+  background: #eef4fb;
+}
+
+.sort-item.active {
+  background: #dbeafe;
+}

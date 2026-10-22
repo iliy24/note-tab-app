@@ -1,14 +1,14 @@
 .control-unit {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Прижимаем к верху */
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
-    width: 5vh;                    
-    height: 15vh;
-    margin-right: 5px; 
+    width: 60px; /* Чуть шире для удобства */
+    margin-right: 0; /* Убираем старый отступ */
 }
+/* ... остальные стили (controls-box, play и т.д.) оставляем без изменений ... */
 
 .controls-box {
     display: flex;

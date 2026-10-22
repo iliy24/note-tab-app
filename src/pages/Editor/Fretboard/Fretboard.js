@@ -2,7 +2,7 @@ import React from "react";
 import { STRINGS } from '../../../data/guitarData';
 import './Fretboard.css';
 
-export default function Fretboard(){
+export default function Fretboard({onNoteClick}){
     return(
         <div className="fretboard-container">
             <div className="fret-zero-box">
@@ -12,7 +12,11 @@ export default function Fretboard(){
 
                     {/* Ноты открытых струн */}
                     {STRINGS.map((string, i) => (
-                        <button key={`0-${i}`} className="note">
+                        <button 
+                        key={`0-${i}`} 
+                        className="note"
+                        onClick={() => onNoteClick(i, 0, string.notes[0])}
+                        >
                             {string.notes[0]}
                         </button>
                     ))}
@@ -36,6 +40,7 @@ export default function Fretboard(){
                                     <button 
                                         key={`${rowIndex}-${colIndex}`} 
                                         className="note"
+                                        onClick={() => onNoteClick(rowIndex,colIndex +1, note)}
                                     >
                                         {note}
                                     </button>

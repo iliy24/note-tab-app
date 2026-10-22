@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import './Header.css';
 import Dropdown from '../Dropdown/Dropdown';
 import logoImage from '../../assets/logo.png';
+import HomeIcon from '../../assets/glav.png'; 
 
-export default function Header({ onNavigate }) {
+export default function Header({ currentView, onNavigate }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -14,9 +15,19 @@ export default function Header({ onNavigate }) {
       </div>
 
       <div className="header-btn-group">
-        <button className="btn-rounded">AI</button>
+        
+        {currentView === 'editor' ? (
+          <button className="btn-rounded">AI</button>
+        ) : (
+          <button 
+            className="btn-rounded btn-home" 
+            onClick={() => onNavigate('editor')}
+            title="На главную"
+          >
+            <img src={HomeIcon} alt="Главная" className="home-icon" />
+          </button>
+        )}
 
-        {/* Обёртка для кнопки и меню — якорь для dropdown */}
         <div className="dropdown-anchor">
           <button 
             className="icon-btn-more"
@@ -27,7 +38,7 @@ export default function Header({ onNavigate }) {
 
           <Dropdown 
             isOpen={isDropdownOpen} 
-            onClose={() => setIsDropdownOpen(false)} 
+            onClose={() => setIsDropdownOpen(false)}
             onNavigate={onNavigate}
           />
         </div>

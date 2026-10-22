@@ -15,13 +15,28 @@ function App() {
         <div className="grid-background"></div>
         <div className="app-container">
 
-          {/* Хедер виден ВСЕГДА, на всех страницах */}
-          <Header onNavigate={setCurrentView} />
+          {/* Передаем текущую страницу и функцию навигации в хедер */}
+          <Header 
+            currentView={currentView} 
+            onNavigate={setCurrentView} 
+          />
 
-          {/* Дальше — условный рендер: показываем ровно одну страницу */}
+          {/* Условный рендер страниц */}
           {currentView === 'editor' && <Editor />}
-          {currentView === 'myTabs' && <MyTabs onBack={() => setCurrentView('editor')} />}
-          {currentView === 'library' && <Library onBack={() => setCurrentView('editor')} />}
+          
+          {currentView === 'myTabs' && (
+            <MyTabs 
+              onBack={() => setCurrentView('editor')} 
+              onNavigate={setCurrentView} 
+            />
+          )}
+          
+          {currentView === 'library' && (
+            <Library 
+              onBack={() => setCurrentView('editor')} 
+              onNavigate={setCurrentView} 
+            />
+          )}
 
         </div>
       </div>

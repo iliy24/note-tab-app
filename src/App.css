@@ -1,5 +1,6 @@
 .app-wrapper {
   min-height: 100vh;
+  min-width: 100vh;
   background: #ffffff;
   display: flex;
   justify-content: center;
@@ -18,6 +19,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100vh; /* Жесткая высота экрана */
+  max-height: 100vh;
+  overflow: hidden; /* Запрещаем скролл всей странице */
 }
 
 .grid-background {
@@ -31,24 +35,23 @@
 }
 
 .app-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 1;
-  min-height: 0;
- 
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    min-height: 0; /* Критично! Позволяет .top-content сжиматься */
 }
 
 .top-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-bottom: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 0;
 }
 
 .tab-controls-row {
