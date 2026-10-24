@@ -78,6 +78,12 @@
     pointer-events: auto;             /* КНОПКИ ТЕХНИК КЛИКАБЕЛЬНЫ */
 }
 
+.tech-btn.active {
+  color: #1d4ed8;
+  transform: scale(1.25);
+  font-weight: 700;
+}
+
 .technique-buttons {
     display: flex;
     flex-direction: row;

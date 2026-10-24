@@ -8,7 +8,17 @@
     width: 60px; /* Чуть шире для удобства */
     margin-right: 0; /* Убираем старый отступ */
 }
-/* ... остальные стили (controls-box, play и т.д.) оставляем без изменений ... */
+
+.play.playing {
+  background: #eef4fb;      /* легкая голубая заливка */
+  box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.3); /* вдавленность */
+  transform: scale(0.96);   /* кнопка чуть сжимается */
+}
+
+/* Чтобы при нажатии во время игры кнопка не «прыгала» */
+.play.playing:active {
+  transform: scale(0.92);
+}
 
 .controls-box {
     display: flex;
