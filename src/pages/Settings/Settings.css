@@ -1,0 +1,100 @@
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 10px;
+}
+
+.settings-page h2 {
+  color: #3b82f6;
+  text-align: center;
+}
+
+.settings-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.settings-avatar-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #3b82f6;
+  background: #eef4fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.settings-avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.settings-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.settings-field label {
+  font-weight: bold;
+  color: #3b82f6;
+}
+
+.settings-field input {
+  padding: 10px;
+  border: 2px solid #3b82f6;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.settings-danger-zone {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-secondary, .btn-danger {
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid;
+  background: transparent;
+}
+
+.btn-secondary {
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.btn-danger {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.btn-danger:hover { background: #fee2e2; }
+.btn-secondary:hover { background: #eef4fb; }

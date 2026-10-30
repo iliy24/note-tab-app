@@ -1,7 +1,15 @@
 import React from "react";
 import './Dropdown.css';
 
-export default function Dropdown({ isOpen, onClose, onNavigate }) {
+
+export default function Dropdown({
+    isOpen,
+    onClose,
+    onNavigate,
+    onSave,
+    onSaveAs
+}) {
+
     if (!isOpen) return null;
 
     const handleNavigate = (view) => {
@@ -26,12 +34,27 @@ export default function Dropdown({ isOpen, onClose, onNavigate }) {
                     Библиотека
                 </button>
                 <div className="dropdown-divider"></div>
-                <button className="dropdown-item" onClick={onClose}>
-                    Сохранить 
+                
+                <button
+                    className="dropdown-item"
+                    onClick={() => {
+                        onSave();
+                        onClose();
+                    }}
+                >
+                    Сохранить
                 </button>
-                <button className="dropdown-item" onClick={onClose}>
-                    Новый лист
+
+                <button
+                    className="dropdown-item"
+                    onClick={() => {
+                        onSaveAs();
+                        onClose();
+                    }}
+                >
+                    Сохранить как
                 </button>
+
             </div>
         </>
     );

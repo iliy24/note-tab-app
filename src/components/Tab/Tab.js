@@ -7,8 +7,9 @@ import DeleteIcon from "../../assets/tresh.png";
 import LookIcon from "../../assets/look.png";
 
 export default function Tab({ tab, onPlay, onShare, onEdit, onDelete, onView, isOwner = true }) {
-  const { title, author, avatar, date, comment, isPublic, hasAudio } = tab;
-  
+  const { title, author, avatar, date, comment, is_public, hasAudio } = tab;
+  const isPublic = is_public;
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCommentExpanded, setIsCommentExpanded] = useState(false);
 

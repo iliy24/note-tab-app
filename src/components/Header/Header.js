@@ -4,7 +4,15 @@ import Dropdown from '../Dropdown/Dropdown';
 import logoImage from '../../assets/logo.png';
 import HomeIcon from '../../assets/glav.png'; 
 
-export default function Header({ currentView, onNavigate }) {
+// Добавили onSaveAs в пропсы
+
+export default function Header({
+    currentView,
+    onNavigate,
+    onSave,
+    onSaveAs
+}) {
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -36,11 +44,15 @@ export default function Header({ currentView, onNavigate }) {
             ...
           </button>
 
-          <Dropdown 
-            isOpen={isDropdownOpen} 
-            onClose={() => setIsDropdownOpen(false)}
-            onNavigate={onNavigate}
-          />
+          
+            <Dropdown
+                isOpen={isDropdownOpen}
+                onClose={() => setIsDropdownOpen(false)}
+                onNavigate={onNavigate}
+                onSave={onSave}
+                onSaveAs={onSaveAs}
+            />
+
         </div>
       </div>
     </header>

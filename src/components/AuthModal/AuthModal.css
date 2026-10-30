@@ -1,0 +1,181 @@
+/* Затемнение фона (как в SaveModal) */
+.auth-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Поверх всех остальных окон */
+}
+
+/* Сама карточка окна */
+.auth-modal {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 20px;
+  border: 2px solid #3b82f6;
+  width: 90%;
+  max-width: 360px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  font-family: inherit;
+}
+
+.auth-modal h2 {
+  color: #3b82f6;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Блок с текстом ошибки */
+.auth-error {
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Форма */
+.auth-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-modal label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #3b82f6;
+  font-size: 14px;
+  gap: 5px;
+}
+
+.auth-modal input {
+  padding: 10px;
+  border: 2px solid #3b82f6;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #333;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.auth-modal input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Главная кнопка (Войти/Зарегистрироваться) */
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Переключатель Вход/Регистрация */
+.auth-switch {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.auth-switch button {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* Разделитель "или" */
+.auth-divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #999;
+  font-size: 14px;
+  position: relative;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background: #ddd;
+}
+
+.auth-divider::before { left: 0; }
+.auth-divider::after { right: 0; }
+
+/* Кнопки соцсетей */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-social {
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-social:active {
+  transform: scale(0.97);
+}
+
+/* Стили для Google (белый с серой рамкой) */
+.btn-google {
+  background: white;
+  color: #333;
+  border-color: #ccc;
+}
+
+.btn-google:hover {
+  background: #f5f5f5;
+}
+
+/* Стили для VK (фирменный синий) */
+.btn-vk {
+  background: #0077FF;
+  color: white;
+  border-color: #0077FF;
+}
+
+.btn-vk:hover {
+  background: #0060cc;
+}

@@ -36,6 +36,7 @@
     position: relative;
     padding: 4px 0;
     box-sizing: border-box;
+    align-items: flex-start;
 }
 
 .strings-label {
@@ -67,10 +68,11 @@
 /* Строка (струна) */
 .string-row {
     display: flex;
-    flex: 1;
     align-items: center;
     position: relative;
-    min-width: max-content; 
+    min-width: max-content;   /* ширина по контенту */
+    width: max-content;       /* ← ключевое: не растягиваться шире контента */
+    flex: 1;                  /* вертикальное растяжение сохраняется */
     z-index: 1;
 }
 
@@ -129,6 +131,139 @@
     border-right: 1px solid rgba(59, 130, 246, 0.8);
     z-index: 10; 
     pointer-events: none;
+}
+
+/* Обёртка таба */
+.tab-area-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* .tab-area — как было, но без изменений */
+.tab-area {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  height: 150px;
+  max-height: 150px;
+  align-items: stretch;
+}
+
+/* Скролл-контейнер: прокручивает и ячейки, и кнопки */
+.strings-lines {
+  flex: 1;
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  position: relative;
+  padding: 4px 0;
+  box-sizing: border-box;
+}
+.strings-lines::-webkit-scrollbar { display: none; }
+
+/* Внутренний ряд: строки стана + колонка кнопок */
+.strings-lines-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: max-content;   /* ширина = контент, чтобы скролл был по факту */
+  height: 100%;
+}
+
+/* Блок из 6 строк */
+.strings-rows {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+/* Одна строка (струна) */
+.string-row {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ячейки — как было */
+.tab-cell {
+  width: 20px;
+  min-width: 20px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #3b82f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  outline: 1px solid transparent;
+}
+
+.tab-cell:not(:empty) {
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #ffffff;
+  border-radius: 4px;
+}
+
+/* Колонка кнопок после последней ячейки */
+.tab-actions-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;      /* ← прижимаем к верху таба */
+  align-items: center;
+  gap: 12px;                        /* ← расстояние между кнопками (было 4) */
+  flex-shrink: 0;
+  padding-left: 10px;                /* отступ от последней колонки стана */
+  padding-top: 2px; 
+  padding-right: 70px;                /* чуть от верха, чтобы не липло к рамке */
+  height: 100%;
+}
+
+/* Кнопки 28px */
+.icon-btn1 {
+  border: 2px solid #3b82f6;
+  background: none;
+  color: #3b82f6;
+  border-radius: 10px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.265);
+  transition: transform 0.1s;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.icon-btn1:active { transform: scale(0.92); }
+
+/* Картинки под 28px кнопку */
+.img-style-paste { width: 20px; height: 20px; }
+.img-style-tresh { width: 16px; height: 16px; }
+.img-style-copy  { width: 18px; height: 16px; }
+
+
+
+/* Адаптив — можно оставить как есть или уменьшить ещё */
+@media (max-width: 398px) {
+  .tab-actions-col { gap: 3px; padding-left: 5px; }
+  .icon-btn1 { width: 20px; height: 20px; }
+  .img-style-paste { width: 14px; height: 14px; }
+  .img-style-tresh { width: 11px; height: 11px; }
+  .img-style-copy  { width: 12px; height: 10px; }
 }
 
 
